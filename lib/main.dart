@@ -2,8 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hackathon4/app/data/services/alert_service.dart';
 import 'package:hackathon4/app/data/services/api_service.dart';
 import 'package:hackathon4/app/data/services/auth_service.dart';
+import 'package:hackathon4/app/data/services/database_service.dart';
 import 'package:hackathon4/app/data/services/storage_service.dart';
 import 'package:hackathon4/app/routes/app_pages.dart';
 
@@ -17,6 +19,8 @@ Future<void> initServices() async {
   await Get.putAsync(() => StorageService().init());
   await Get.putAsync(() => ApiService().init());
   await Get.putAsync(() => AuthService().init());
+  await Get.putAsync(() => DataBaseService().init());
+  await Get.putAsync(() => AlertService().init());
 }
 
 class MyApp extends StatelessWidget {

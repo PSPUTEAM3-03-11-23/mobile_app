@@ -8,6 +8,7 @@ part of 'database.dart';
 
 _$DataBaseImpl _$$DataBaseImplFromJson(Map<String, dynamic> json) =>
     _$DataBaseImpl(
+      id: json['id'] as int,
       host: json['host'] as String,
       port: json['port'] as String,
       username: json['username'] as String,
@@ -20,6 +21,7 @@ _$DataBaseImpl _$$DataBaseImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$DataBaseImplToJson(_$DataBaseImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'host': instance.host,
       'port': instance.port,
       'username': instance.username,

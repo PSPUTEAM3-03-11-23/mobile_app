@@ -20,6 +20,7 @@ Alert _$AlertFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Alert {
+  int get id => throw _privateConstructorUsedError;
   int get dbId => throw _privateConstructorUsedError;
   String get error => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
@@ -34,7 +35,7 @@ abstract class $AlertCopyWith<$Res> {
   factory $AlertCopyWith(Alert value, $Res Function(Alert) then) =
       _$AlertCopyWithImpl<$Res, Alert>;
   @useResult
-  $Res call({int dbId, String error, DateTime date});
+  $Res call({int id, int dbId, String error, DateTime date});
 }
 
 /// @nodoc
@@ -50,11 +51,16 @@ class _$AlertCopyWithImpl<$Res, $Val extends Alert>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? dbId = null,
     Object? error = null,
     Object? date = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       dbId: null == dbId
           ? _value.dbId
           : dbId // ignore: cast_nullable_to_non_nullable
@@ -78,7 +84,7 @@ abstract class _$$AlertImplCopyWith<$Res> implements $AlertCopyWith<$Res> {
       __$$AlertImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int dbId, String error, DateTime date});
+  $Res call({int id, int dbId, String error, DateTime date});
 }
 
 /// @nodoc
@@ -92,11 +98,16 @@ class __$$AlertImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? dbId = null,
     Object? error = null,
     Object? date = null,
   }) {
     return _then(_$AlertImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       dbId: null == dbId
           ? _value.dbId
           : dbId // ignore: cast_nullable_to_non_nullable
@@ -116,11 +127,17 @@ class __$$AlertImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AlertImpl implements _Alert {
-  _$AlertImpl({required this.dbId, required this.error, required this.date});
+  _$AlertImpl(
+      {required this.id,
+      required this.dbId,
+      required this.error,
+      required this.date});
 
   factory _$AlertImpl.fromJson(Map<String, dynamic> json) =>
       _$$AlertImplFromJson(json);
 
+  @override
+  final int id;
   @override
   final int dbId;
   @override
@@ -130,7 +147,7 @@ class _$AlertImpl implements _Alert {
 
   @override
   String toString() {
-    return 'Alert(dbId: $dbId, error: $error, date: $date)';
+    return 'Alert(id: $id, dbId: $dbId, error: $error, date: $date)';
   }
 
   @override
@@ -138,6 +155,7 @@ class _$AlertImpl implements _Alert {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AlertImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.dbId, dbId) || other.dbId == dbId) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.date, date) || other.date == date));
@@ -145,7 +163,7 @@ class _$AlertImpl implements _Alert {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, dbId, error, date);
+  int get hashCode => Object.hash(runtimeType, id, dbId, error, date);
 
   @JsonKey(ignore: true)
   @override
@@ -163,12 +181,15 @@ class _$AlertImpl implements _Alert {
 
 abstract class _Alert implements Alert {
   factory _Alert(
-      {required final int dbId,
+      {required final int id,
+      required final int dbId,
       required final String error,
       required final DateTime date}) = _$AlertImpl;
 
   factory _Alert.fromJson(Map<String, dynamic> json) = _$AlertImpl.fromJson;
 
+  @override
+  int get id;
   @override
   int get dbId;
   @override

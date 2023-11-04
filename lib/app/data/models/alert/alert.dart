@@ -6,6 +6,7 @@ part 'alert.g.dart';
 @freezed
 class Alert with _$Alert {
   factory Alert({
+    required int id,
     required int dbId,
     required String error,
     required DateTime date,

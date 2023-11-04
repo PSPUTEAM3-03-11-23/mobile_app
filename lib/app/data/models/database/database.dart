@@ -6,6 +6,7 @@ part 'database.g.dart';
 @freezed
 class DataBase with _$DataBase {
   factory DataBase({
+    required int id,
     required String host,
     required String port,
     required String username,

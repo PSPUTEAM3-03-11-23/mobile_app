@@ -20,6 +20,7 @@ DataBase _$DataBaseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DataBase {
+  int get id => throw _privateConstructorUsedError;
   String get host => throw _privateConstructorUsedError;
   String get port => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
@@ -41,7 +42,8 @@ abstract class $DataBaseCopyWith<$Res> {
       _$DataBaseCopyWithImpl<$Res, DataBase>;
   @useResult
   $Res call(
-      {String host,
+      {int id,
+      String host,
       String port,
       String username,
       String password,
@@ -64,6 +66,7 @@ class _$DataBaseCopyWithImpl<$Res, $Val extends DataBase>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? host = null,
     Object? port = null,
     Object? username = null,
@@ -74,6 +77,10 @@ class _$DataBaseCopyWithImpl<$Res, $Val extends DataBase>
     Object? organizationId = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       host: null == host
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
@@ -119,7 +126,8 @@ abstract class _$$DataBaseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String host,
+      {int id,
+      String host,
       String port,
       String username,
       String password,
@@ -140,6 +148,7 @@ class __$$DataBaseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? host = null,
     Object? port = null,
     Object? username = null,
@@ -150,6 +159,10 @@ class __$$DataBaseImplCopyWithImpl<$Res>
     Object? organizationId = null,
   }) {
     return _then(_$DataBaseImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       host: null == host
           ? _value.host
           : host // ignore: cast_nullable_to_non_nullable
@@ -190,7 +203,8 @@ class __$$DataBaseImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DataBaseImpl implements _DataBase {
   _$DataBaseImpl(
-      {required this.host,
+      {required this.id,
+      required this.host,
       required this.port,
       required this.username,
       required this.password,
@@ -202,6 +216,8 @@ class _$DataBaseImpl implements _DataBase {
   factory _$DataBaseImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataBaseImplFromJson(json);
 
+  @override
+  final int id;
   @override
   final String host;
   @override
@@ -221,7 +237,7 @@ class _$DataBaseImpl implements _DataBase {
 
   @override
   String toString() {
-    return 'DataBase(host: $host, port: $port, username: $username, password: $password, dbName: $dbName, schema: $schema, title: $title, organizationId: $organizationId)';
+    return 'DataBase(id: $id, host: $host, port: $port, username: $username, password: $password, dbName: $dbName, schema: $schema, title: $title, organizationId: $organizationId)';
   }
 
   @override
@@ -229,6 +245,7 @@ class _$DataBaseImpl implements _DataBase {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataBaseImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.host, host) || other.host == host) &&
             (identical(other.port, port) || other.port == port) &&
             (identical(other.username, username) ||
@@ -244,8 +261,8 @@ class _$DataBaseImpl implements _DataBase {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, host, port, username, password,
-      dbName, schema, title, organizationId);
+  int get hashCode => Object.hash(runtimeType, id, host, port, username,
+      password, dbName, schema, title, organizationId);
 
   @JsonKey(ignore: true)
   @override
@@ -263,7 +280,8 @@ class _$DataBaseImpl implements _DataBase {
 
 abstract class _DataBase implements DataBase {
   factory _DataBase(
-      {required final String host,
+      {required final int id,
+      required final String host,
       required final String port,
       required final String username,
       required final String password,
@@ -275,6 +293,8 @@ abstract class _DataBase implements DataBase {
   factory _DataBase.fromJson(Map<String, dynamic> json) =
       _$DataBaseImpl.fromJson;
 
+  @override
+  int get id;
   @override
   String get host;
   @override
