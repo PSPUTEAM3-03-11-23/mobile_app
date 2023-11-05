@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hackathon4/app/data/models/alert/alert.dart';
 
 part 'database.freezed.dart';
 part 'database.g.dart';
@@ -9,6 +10,7 @@ class DataBase with _$DataBase {
     required int id,
     required String host,
     required String port,
+    required List<Alert> alerts,
     required String username,
     required String password,
     required String dbName,

@@ -11,6 +11,9 @@ _$DataBaseImpl _$$DataBaseImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int,
       host: json['host'] as String,
       port: json['port'] as String,
+      alerts: (json['alerts'] as List<dynamic>)
+          .map((e) => Alert.fromJson(e as Map<String, dynamic>))
+          .toList(),
       username: json['username'] as String,
       password: json['password'] as String,
       dbName: json['dbName'] as String,
@@ -24,6 +27,7 @@ Map<String, dynamic> _$$DataBaseImplToJson(_$DataBaseImpl instance) =>
       'id': instance.id,
       'host': instance.host,
       'port': instance.port,
+      'alerts': instance.alerts,
       'username': instance.username,
       'password': instance.password,
       'dbName': instance.dbName,

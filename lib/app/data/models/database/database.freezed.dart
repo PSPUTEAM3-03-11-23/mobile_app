@@ -23,6 +23,7 @@ mixin _$DataBase {
   int get id => throw _privateConstructorUsedError;
   String get host => throw _privateConstructorUsedError;
   String get port => throw _privateConstructorUsedError;
+  List<Alert> get alerts => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get dbName => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $DataBaseCopyWith<$Res> {
       {int id,
       String host,
       String port,
+      List<Alert> alerts,
       String username,
       String password,
       String dbName,
@@ -69,6 +71,7 @@ class _$DataBaseCopyWithImpl<$Res, $Val extends DataBase>
     Object? id = null,
     Object? host = null,
     Object? port = null,
+    Object? alerts = null,
     Object? username = null,
     Object? password = null,
     Object? dbName = null,
@@ -89,6 +92,10 @@ class _$DataBaseCopyWithImpl<$Res, $Val extends DataBase>
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as String,
+      alerts: null == alerts
+          ? _value.alerts
+          : alerts // ignore: cast_nullable_to_non_nullable
+              as List<Alert>,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -129,6 +136,7 @@ abstract class _$$DataBaseImplCopyWith<$Res>
       {int id,
       String host,
       String port,
+      List<Alert> alerts,
       String username,
       String password,
       String dbName,
@@ -151,6 +159,7 @@ class __$$DataBaseImplCopyWithImpl<$Res>
     Object? id = null,
     Object? host = null,
     Object? port = null,
+    Object? alerts = null,
     Object? username = null,
     Object? password = null,
     Object? dbName = null,
@@ -171,6 +180,10 @@ class __$$DataBaseImplCopyWithImpl<$Res>
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
               as String,
+      alerts: null == alerts
+          ? _value._alerts
+          : alerts // ignore: cast_nullable_to_non_nullable
+              as List<Alert>,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -206,12 +219,14 @@ class _$DataBaseImpl implements _DataBase {
       {required this.id,
       required this.host,
       required this.port,
+      required final List<Alert> alerts,
       required this.username,
       required this.password,
       required this.dbName,
       required this.schema,
       required this.title,
-      required this.organizationId});
+      required this.organizationId})
+      : _alerts = alerts;
 
   factory _$DataBaseImpl.fromJson(Map<String, dynamic> json) =>
       _$$DataBaseImplFromJson(json);
@@ -222,6 +237,14 @@ class _$DataBaseImpl implements _DataBase {
   final String host;
   @override
   final String port;
+  final List<Alert> _alerts;
+  @override
+  List<Alert> get alerts {
+    if (_alerts is EqualUnmodifiableListView) return _alerts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_alerts);
+  }
+
   @override
   final String username;
   @override
@@ -237,7 +260,7 @@ class _$DataBaseImpl implements _DataBase {
 
   @override
   String toString() {
-    return 'DataBase(id: $id, host: $host, port: $port, username: $username, password: $password, dbName: $dbName, schema: $schema, title: $title, organizationId: $organizationId)';
+    return 'DataBase(id: $id, host: $host, port: $port, alerts: $alerts, username: $username, password: $password, dbName: $dbName, schema: $schema, title: $title, organizationId: $organizationId)';
   }
 
   @override
@@ -248,6 +271,7 @@ class _$DataBaseImpl implements _DataBase {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.host, host) || other.host == host) &&
             (identical(other.port, port) || other.port == port) &&
+            const DeepCollectionEquality().equals(other._alerts, _alerts) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
@@ -261,8 +285,18 @@ class _$DataBaseImpl implements _DataBase {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, host, port, username,
-      password, dbName, schema, title, organizationId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      host,
+      port,
+      const DeepCollectionEquality().hash(_alerts),
+      username,
+      password,
+      dbName,
+      schema,
+      title,
+      organizationId);
 
   @JsonKey(ignore: true)
   @override
@@ -283,6 +317,7 @@ abstract class _DataBase implements DataBase {
       {required final int id,
       required final String host,
       required final String port,
+      required final List<Alert> alerts,
       required final String username,
       required final String password,
       required final String dbName,
@@ -299,6 +334,8 @@ abstract class _DataBase implements DataBase {
   String get host;
   @override
   String get port;
+  @override
+  List<Alert> get alerts;
   @override
   String get username;
   @override
